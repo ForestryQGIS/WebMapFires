@@ -33,7 +33,6 @@
         <script src="js/labels.js"></script>
         <script src="js/leaflet.wms.js"></script>
         <script src="js/leaflet-measure.js"></script>
-        <script src="data/Paises_Mundo_4.js"></script>
         <script>
         var map = L.map('map', {
 			center: [40.00437176085360, -3.779524803161621],
@@ -115,30 +114,6 @@
                 </table>';
             layer.bindPopup(popupContent, {maxHeight: 400});
         }
-
-        function style_Paises_Mundo_4_0() {
-            return {
-                pane: 'pane_Paises_Mundo_4',
-                opacity: 1,
-                color: 'rgba(0,0,0,1.0)',
-                dashArray: '',
-                lineCap: 'butt',
-                lineJoin: 'miter',
-                weight: 1.0, 
-                fillOpacity: 0,
-            }
-        }
-        map.createPane('pane_Paises_Mundo_4');
-        map.getPane('pane_Paises_Mundo_4').style.zIndex = 404;
-        map.getPane('pane_Paises_Mundo_4').style['mix-blend-mode'] = 'normal';
-        var layer_Paises_Mundo_4 = new L.geoJson(json_Paises_Mundo_4, {
-            attribution: '<a href=""></a>',
-            pane: 'pane_Paises_Mundo_4',
-            onEachFeature: pop_Paises_Mundo_4,
-            style: style_Paises_Mundo_4_0,
-        });
-        bounds_group.addLayer(layer_Paises_Mundo_4);
-        map.addLayer(layer_Paises_Mundo_4);
 		
         var baseMaps = {};
         L.control.layers(baseMaps,{"VIIRS Fires - Past 24 hours": overlay_VIIRSFiresPast24hours_3,"MODIS Fires - Past 24 hours": overlay_MODISFiresPast24hours_2,"VIIRS Fires - Past 48 hours": overlay_VIIRSFiresPast48hours_1,"MODIS Fires - Past 48 hours": overlay_MODISFiresPast48hours_0,}).addTo(map);
