@@ -61,18 +61,6 @@
         basemap0.addTo(map);
         function setBounds() {
         }
-		
-	var overlay_Ortoimagen_0 = L.WMS.layer("http://www.ign.es/wms-inspire/pnoa-ma?", "OI.OrthoimageCoverage", {
-            format: 'image/png',
-            uppercase: true,
-            transparent: true,
-            continuousWorld : true,
-            tiled: true,
-            info_format: 'text/html',
-            opacity: 1,
-            identify: false,
-        });
-	
         var overlay_MODISFiresPast48hours_0 = L.WMS.layer("https://firms.modaps.eosdis.nasa.gov/wms/c6/?", "fires48", {
             format: 'image/png',
             uppercase: true,
@@ -119,6 +107,18 @@
 			
         });
         map.addLayer(overlay_VIIRSFiresPast24hours_3);
+
+        var overlay_Ortoimagen_0 = L.WMS.layer("http://www.ign.es/wms-inspire/pnoa-ma?", "OI.OrthoimageCoverage", {
+            format: 'image/png',
+            uppercase: true,
+            transparent: true,
+            continuousWorld : true,
+            tiled: true,
+            info_format: 'text/html',
+            opacity: 1,
+            identify: false,
+        });	
+		
         function pop_Paises_Mundo_4(feature, layer) {
             var popupContent = '<table>\
                     <tr>\
