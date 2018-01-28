@@ -46,6 +46,7 @@
 		});
         var hash = new L.Hash(map);
         map.attributionControl.addAttribution('Mapa Realizado por: <a href="https://forestryqgis.blogspot.com.es/">ForestryQGIS</a>&copy | Datos: <a href="https://firms2.modaps.eosdis.nasa.gov/active_fire">Earth Data</a>&copy |<a href="https://github.com/tomchadwin/qgis2web" target="_blank">qgis2web</a>|<a href="https://github.com/" target="_blank">GitHub</a>');
+	L.control.locate().addTo(map);	
         var measureControl = new L.Control.Measure({
             primaryLengthUnit: 'meters',
             secondaryLengthUnit: 'kilometers',
