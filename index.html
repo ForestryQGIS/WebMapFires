@@ -62,18 +62,16 @@
         function setBounds() {
         }
 		
-	var overlay_PNOA_IGN_MaximaActualidad_4 = L.WMS.layer("http://www.ign.es/wms-inspire/pnoa-ma?", "Ortoimagen", {
+	var overlay_Ortoimagen_0 = L.WMS.layer("http://www.ign.es/wms-inspire/pnoa-ma?", "OI.OrthoimageCoverage", {
             format: 'image/png',
             uppercase: true,
-            transparent: false,
-            continuousWorld : false,
-            tiled: false,
+            transparent: true,
+            continuousWorld : true,
+            tiled: true,
             info_format: 'text/html',
             opacity: 1,
             identify: false,
-			maxZoom: 20,
-			
-        });	
+        });
 	
         var overlay_MODISFiresPast48hours_0 = L.WMS.layer("https://firms.modaps.eosdis.nasa.gov/wms/c6/?", "fires48", {
             format: 'image/png',
@@ -131,7 +129,7 @@
         }
 		
         var baseMaps = {};
-        L.control.layers(baseMaps,{"VIIRS Fires - Past 24 hours": overlay_VIIRSFiresPast24hours_3,"MODIS Fires - Past 24 hours": overlay_MODISFiresPast24hours_2,"VIIRS Fires - Past 48 hours": overlay_VIIRSFiresPast48hours_1,"MODIS Fires - Past 48 hours": overlay_MODISFiresPast48hours_0, "Ortofoto PNOA IGN": overlay_PNOA_IGN_MaximaActualidad_4}).addTo(map);
+        L.control.layers(baseMaps,{"VIIRS Fires - Past 24 hours": overlay_VIIRSFiresPast24hours_3,"MODIS Fires - Past 24 hours": overlay_MODISFiresPast24hours_2,"VIIRS Fires - Past 48 hours": overlay_VIIRSFiresPast48hours_1,"MODIS Fires - Past 48 hours": overlay_MODISFiresPast48hours_0, "Ortoimagen PNOA IGN": overlay_Ortoimagen_0,}).addTo(map);
         setBounds();
 		
 	function pop_Paises_Mundo_0(feature, layer) {
