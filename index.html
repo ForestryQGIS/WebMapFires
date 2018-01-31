@@ -105,7 +105,7 @@
         });
         map.addLayer(overlay_VIIRSFiresPast24hours_3);
 
-        var overlay_Ortoimagen_0 = L.WMS.layer("http://www.ign.es/wms-inspire/pnoa-ma?", "OI.OrthoimageCoverage", {
+        var overlay_Ortoimagen_4 = L.WMS.layer("http://www.ign.es/wms-inspire/pnoa-ma?", "OI.OrthoimageCoverage", {
             format: 'image/png',
             uppercase: true,
             transparent: true,
@@ -127,7 +127,7 @@
         }
 		
         var baseMaps = {};
-        L.control.layers(baseMaps,{"VIIRS Fires - Past 24 Hours": overlay_VIIRSFiresPast24Hours_1, "MODIS Fires - Past 24 Hours": overlay_MODISFiresPast24Hours_0,"VIIRS Fires - Past 48 hours": overlay_VIIRSFiresPast48hours_2, "MODIS Fires - Past 48 hours": overlay_MODISFiresPast48hours_3, "Ortoimagen PNOA IGN": overlay_Ortoimagen_0,}).addTo(map);
+        L.control.layers(baseMaps,{"VIIRS Fires - Past 24 Hours": overlay_VIIRSFiresPast24Hours_1, "MODIS Fires - Past 24 Hours": overlay_MODISFiresPast24Hours_0,"VIIRS Fires - Past 48 hours": overlay_VIIRSFiresPast48hours_2, "MODIS Fires - Past 48 hours": overlay_MODISFiresPast48hours_3, "Ortoimagen PNOA IGN": overlay_Ortoimagen_4,}).addTo(map);
         setBounds();
 		
 	function pop_Paises_Mundo_0(feature, layer) {
