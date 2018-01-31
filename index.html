@@ -33,9 +33,14 @@
         <script src="js/labels.js"></script>
         <script src="js/leaflet.wms.js"></script>
         <script src="js/leaflet-measure.js"></script>
-        <script src="data/Paises_Mundo_6.js"></script>
         <script>
+        var highlightLayer;
+        function highlightFeature(e) {
+            highlightLayer = e.target;
+            highlightLayer.openPopup();
+        }
         var map = L.map('map', {
+			center: [40.00437176085360, -3.779524803161621],
 			zoom: 6,
 			minZoom: 2,
 			maxZoom: 15,
@@ -44,7 +49,7 @@
 			attributionControl: true
         })
         var hash = new L.Hash(map);
-		map.attributionControl.addAttribution('Mapa Realizado por: <a href="https://forestryqgis.blogspot.com.es/">ForestryQGIS</a>&copy | Datos: <a href="https://firms2.modaps.eosdis.nasa.gov/active_fire">Earth Data</a>&copy |<a href="https://github.com/tomchadwin/qgis2web" target="_blank">qgis2web</a>|<a href="https://github.com/" target="_blank">GitHub</a>');
+	map.attributionControl.addAttribution('Mapa Realizado por: <a href="https://forestryqgis.blogspot.com.es/">ForestryQGIS</a>&copy | Datos: <a href="https://firms2.modaps.eosdis.nasa.gov/active_fire">Earth Data</a>&copy |<a href="https://github.com/tomchadwin/qgis2web" target="_blank">qgis2web</a>|<a href="https://github.com/" target="_blank">GitHub</a>');
         L.control.locate().addTo(map);
         var measureControl = new L.Control.Measure({
             primaryLengthUnit: 'meters',
@@ -55,8 +60,8 @@
         measureControl.addTo(map);
         var bounds_group = new L.featureGroup([]);
         var basemap0 = L.tileLayer('http://a.tile.stamen.com/terrain/{z}/{x}/{y}.png', {
-            attribution: '|<a href="http://openstreetmap.org">OpenStreetMap</a>&copy;',
-		maxZoom: 20
+            attribution: 'Map tiles by <a href="http://stamen.com">Stamen Design</a>,<a href="http://creativecommons.org/licenses/by/3.0">CC BY 3.0</a> &mdash;Map data: &copy; <a href="http://openstreetmap.org">OpenStreetMap</a>contributors,<a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>',
+            maxZoom: 20
         });
         basemap0.addTo(map);
         function setBounds() {
@@ -112,49 +117,10 @@
             identify: false,
         });
         map.addLayer(overlay_VIIRSFiresPast24Hours_4);
-        function pop_Paises_Mundo_6(feature, layer) {
-            layer.on({
-                mouseout: function(e) {
-                    if (typeof layer.closePopup == 'function') {
-                        layer.closePopup();
-                    } else {
-                        layer.eachLayer(function(feature){
-                            feature.closePopup()
-                        });
-                    }
-                },
-                mouseover: highlightFeature,
-            });
-            var popupContent = '<table>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['PAÍS'] !== null ? Autolinker.link(String(feature.properties['PAÍS'])) : '') + '</td>\
-                    </tr>\
-                </table>';
-            layer.bindPopup(popupContent, {maxHeight: 400});
-        }
-
-        function style_Paises_Mundo_6_0() {
-            return {
-                pane: 'pane_Paises_Mundo_6',
-                stroke: false, 
-                fillOpacity: 0,
-            }
-        }
-        map.createPane('pane_Paises_Mundo_6');
-        map.getPane('pane_Paises_Mundo_6').style.zIndex = 406;
-        map.getPane('pane_Paises_Mundo_6').style['mix-blend-mode'] = 'normal';
-        var layer_Paises_Mundo_6 = new L.geoJson(json_Paises_Mundo_6, {
-            attribution: '<a href=""></a>',
-            pane: 'pane_Paises_Mundo_6',
-            onEachFeature: pop_Paises_Mundo_6,
-            style: style_Paises_Mundo_6_0,
-        });
-        bounds_group.addLayer(layer_Paises_Mundo_6);
-        map.addLayer(layer_Paises_Mundo_6);
         var baseMaps = {};
         L.control.layers(baseMaps,{"VIIRS Fires - Past 24 Hours": overlay_VIIRSFiresPast24Hours_4,"MODIS Fires - Past 24 Hours": overlay_MODISFiresPast24Hours_3,"VIIRS Fires - Past 48 hours": overlay_VIIRSFiresPast48hours_2,"MODIS Fires - Past 48 hours": overlay_MODISFiresPast48hours_1,"Ortoimagen": overlay_Ortoimagen_0,}).addTo(map);
         setBounds();
-
+		
 		//Watermark
 		L.Control.Watermark = L.Control.extend({
 			onAdd: function(map) {
@@ -176,6 +142,7 @@
 		}
 
 		L.control.watermark({ position: 'bottomleft' }).addTo(map);		
+		
 		
         </script>
     </body>
