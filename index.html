@@ -62,50 +62,46 @@
         basemap0.addTo(map);
         function setBounds() {
         }
-        var overlay_MODISFiresPast48hours_0 = L.WMS.layer("https://firms.modaps.eosdis.nasa.gov/wms/c6/?", "fires48", {
+        var overlay_MODISFiresPast24Hours_0 = L.WMS.layer("https://firms2.modaps.eosdis.nasa.gov/wms/?", "fires_modis_24", {
             format: 'image/png',
             uppercase: true,
-            transparent: false,
-            continuousWorld : false,
-            tiled: false,
+            transparent: true,
+            continuousWorld : true,
+            tiled: true,
             info_format: 'text/html',
             opacity: 1,
             identify: false,
-			maxZoom: 20,
         });
-        var overlay_VIIRSFiresPast48hours_1 = L.WMS.layer("https://firms.modaps.eosdis.nasa.gov/wms/viirs/?", "fires48", {
+        var overlay_VIIRSFiresPast24Hours_1 = L.WMS.layer("https://firms2.modaps.eosdis.nasa.gov/wms/?", "fires_viirs_24", {
             format: 'image/png',
             uppercase: true,
-            transparent: false,
-            continuousWorld : false,
-            tiled: false,
+            transparent: true,
+            continuousWorld : true,
+            tiled: true,
             info_format: 'text/html',
             opacity: 1,
             identify: false,
-			maxZoom: 20,
         });
-        var overlay_MODISFiresPast24hours_2 = L.WMS.layer("https://firms.modaps.eosdis.nasa.gov/wms/c6/?", "fires24", {
+        map.addLayer(overlay_VIIRSFiresPast24Hours_1);
+        var overlay_VIIRSFiresPast48hours_2 = L.WMS.layer("https://firms2.modaps.eosdis.nasa.gov/wms/?", "fires_viirs_48", {
             format: 'image/png',
             uppercase: true,
-            transparent: false,
-            continuousWorld : false,
-            tiled: false,
+            transparent: true,
+            continuousWorld : true,
+            tiled: true,
             info_format: 'text/html',
             opacity: 1,
             identify: false,
-			maxZoom: 20,
         });
-        var overlay_VIIRSFiresPast24hours_3 = L.WMS.layer("https://firms.modaps.eosdis.nasa.gov/wms/viirs/?", "fires24", {
+        var overlay_MODISFiresPast48hours_3 = L.WMS.layer("https://firms2.modaps.eosdis.nasa.gov/wms/?", "fires_modis_48", {
             format: 'image/png',
             uppercase: true,
-            transparent: false,
-            continuousWorld : false,
-            tiled: false,
+            transparent: true,
+            continuousWorld : true,
+            tiled: true,
             info_format: 'text/html',
             opacity: 1,
             identify: false,
-			maxZoom: 20,
-			
         });
         map.addLayer(overlay_VIIRSFiresPast24hours_3);
 
@@ -131,7 +127,7 @@
         }
 		
         var baseMaps = {};
-        L.control.layers(baseMaps,{"VIIRS Fires - Past 24 hours": overlay_VIIRSFiresPast24hours_3,"MODIS Fires - Past 24 hours": overlay_MODISFiresPast24hours_2,"VIIRS Fires - Past 48 hours": overlay_VIIRSFiresPast48hours_1,"MODIS Fires - Past 48 hours": overlay_MODISFiresPast48hours_0, "Ortoimagen PNOA IGN": overlay_Ortoimagen_0,}).addTo(map);
+        L.control.layers(baseMaps,{"VIIRS Fires - Past 24 Hours": overlay_VIIRSFiresPast24Hours_1, "MODIS Fires - Past 24 Hours": overlay_MODISFiresPast24Hours_0,"VIIRS Fires - Past 48 hours": overlay_VIIRSFiresPast48hours_2, "MODIS Fires - Past 48 hours": overlay_MODISFiresPast48hours_3, "Ortoimagen PNOA IGN": overlay_Ortoimagen_0,}).addTo(map);
         setBounds();
 		
 	function pop_Paises_Mundo_0(feature, layer) {
