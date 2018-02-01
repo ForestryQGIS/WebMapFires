@@ -60,7 +60,7 @@
         measureControl.addTo(map);
         var bounds_group = new L.featureGroup([]);
         var basemap0 = L.tileLayer('http://a.tile.stamen.com/terrain/{z}/{x}/{y}.png', {
-            attribution: 'Map tiles by <a href="http://stamen.com">Stamen Design</a>,<a href="http://creativecommons.org/licenses/by/3.0">CC BY 3.0</a> &mdash;Map data: &copy; <a href="http://openstreetmap.org">OpenStreetMap</a>contributors,<a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>',
+            attribution: 'Map: <a href="http://stamen.com">Stamen</a>',
             maxZoom: 20
         });
         basemap0.addTo(map);
@@ -118,7 +118,7 @@
         });
         map.addLayer(overlay_VIIRSFiresPast24Hours_4);
         var baseMaps = {};
-        L.control.layers(baseMaps,{"VIIRS Fires - Past 24 Hours": overlay_VIIRSFiresPast24Hours_4,"MODIS Fires - Past 24 Hours": overlay_MODISFiresPast24Hours_3,"VIIRS Fires - Past 48 hours": overlay_VIIRSFiresPast48hours_2,"MODIS Fires - Past 48 hours": overlay_MODISFiresPast48hours_1,"Ortoimagen": overlay_Ortoimagen_0,}).addTo(map);
+        L.control.layers(baseMaps,{"VIIRS Fires - Past 24 Hours": overlay_VIIRSFiresPast24Hours_4,"MODIS Fires - Past 24 Hours": overlay_MODISFiresPast24Hours_3,"VIIRS Fires - Past 48 hours": overlay_VIIRSFiresPast48hours_2,"MODIS Fires - Past 48 hours": overlay_MODISFiresPast48hours_1,"Ortoimagen PNOA IGN": overlay_Ortoimagen_0,}).addTo(map);
         setBounds();
 		
 		//Watermark
