@@ -78,7 +78,7 @@
             opacity: 1,
             identify: false,
         });
-        var overlay_MODISFiresPast48hours_1 = L.WMS.layer("https://firms.modaps.eosdis.nasa.gov/wms/?&MAP_KEY=2c88455c6d67df69f0df9fbf256e26d3", "fires_modis_48", {
+        var overlay_MODISFiresPast48hours_1 = L.WMS.layer("https://firms.modaps.eosdis.nasa.gov/wms/?&MAP_KEY=2c88455c6d67df69f0df9fbf256e26d3&SIZE=4&SYMBOLS=circle", "fires_modis_48", {
             layers:'fires_viirs_48',
 	    format: 'image/png',
             uppercase: true,
